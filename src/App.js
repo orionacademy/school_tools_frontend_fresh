@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+
+import ParentClient from './components/ParentClient.js'
+import AdminClient from './components/AdminClient.js'
+
+import AdminView from "./components/AdminView.js";
+
+// React libraries
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div>
+
+            <Router>
+                <Switch>
+                    <Route path="/parentClient" >
+                        <ParentClient />
+                    </Route>
+
+                    <Route path="/adminClient" >
+                        <AdminClient />
+                    </Route>
+
+
+                    <ul>
+                        <li>
+                            <Link to="/parentClient">
+                                ParentClient
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/adminClient">
+                                AdminClient
+                            </Link>
+                        </li>
+                    </ul>
+
+                </Switch>
+            </Router>
+
+        </div>
+    )
 }
 
-export default App;
+export default App

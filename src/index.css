@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#bordered_table {
+    border-style: solid;
+    border-color: red;
+}
+
+button > * {
+  pointer-events: none;
+}
