@@ -65,6 +65,7 @@ class AdminClient extends React.Component {
                 }
             })
             .then(() => this.conditionalCheck())
+            .then(console.log("fetch has been called!"))
     }
 
     // performs auth check
