@@ -58,8 +58,7 @@ class AdminClient extends React.Component {
             headers: new Headers({ 'Content-Type': 'application/json' }),
             body: JSON.stringify({ username: this.state.username, password: this.state.password })
         })
-            .then(res => console.log("res ---> ", res))
-            /*
+            .then(res => res.json())
             .then(admin => {
                 console.log(admin)
                 if (admin != false) {
@@ -68,7 +67,6 @@ class AdminClient extends React.Component {
             })
             .then(() => this.conditionalCheck())
             .then(console.log("fetch has been called!"))
-            */
     }
 
     // performs auth check
