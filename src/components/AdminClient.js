@@ -55,7 +55,10 @@ class AdminClient extends React.Component {
         console.log("authcheck started, update finished!")
         fetch('/admin', {
             method: 'POST',
-            headers: new Headers({ 'Content-Type': 'application/json' }),
+            headers : { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+               },
             body: JSON.stringify({ username: this.state.username, password: this.state.password })
         })
             .then(res => res.json())
