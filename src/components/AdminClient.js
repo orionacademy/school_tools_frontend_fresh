@@ -52,7 +52,7 @@ class AdminClient extends React.Component {
 
     // TODO: update the fetch to search for a parent username and password!
     authCheck() {
-        console.log("authcheck started, update finished!")
+        console.log("authcheck started, update finished2!")
         fetch('/admin', {
             method: 'POST',
             headers : { 
