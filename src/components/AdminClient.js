@@ -57,7 +57,8 @@ class AdminClient extends React.Component {
             method: 'POST',
             headers : { 
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+                'Origin': 'https://ogjaylowe.github.io/adminClient'
                },
             body: JSON.stringify({ username: this.state.username, password: this.state.password })
         })
