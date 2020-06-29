@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/school_tools_frontend_fresh/static/css/main.635a0b59.chunk.css",
-    "main.js": "/school_tools_frontend_fresh/static/js/main.c313787a.chunk.js",
-    "main.js.map": "/school_tools_frontend_fresh/static/js/main.c313787a.chunk.js.map",
+    "main.js": "/school_tools_frontend_fresh/static/js/main.d95c45b8.chunk.js",
+    "main.js.map": "/school_tools_frontend_fresh/static/js/main.d95c45b8.chunk.js.map",
     "runtime-main.js": "/school_tools_frontend_fresh/static/js/runtime-main.a1b33fb2.js",
     "runtime-main.js.map": "/school_tools_frontend_fresh/static/js/runtime-main.a1b33fb2.js.map",
     "static/css/2.f524894f.chunk.css": "/school_tools_frontend_fresh/static/css/2.f524894f.chunk.css",
     "static/js/2.0b13bbc1.chunk.js": "/school_tools_frontend_fresh/static/js/2.0b13bbc1.chunk.js",
     "static/js/2.0b13bbc1.chunk.js.map": "/school_tools_frontend_fresh/static/js/2.0b13bbc1.chunk.js.map",
     "index.html": "/school_tools_frontend_fresh/index.html",
-    "precache-manifest.84192c2e5561adfa31e58468813bd5ef.js": "/school_tools_frontend_fresh/precache-manifest.84192c2e5561adfa31e58468813bd5ef.js",
+    "precache-manifest.a89df88d2c9717ffe91cab62fae70ecc.js": "/school_tools_frontend_fresh/precache-manifest.a89df88d2c9717ffe91cab62fae70ecc.js",
     "service-worker.js": "/school_tools_frontend_fresh/service-worker.js",
     "static/css/2.f524894f.chunk.css.map": "/school_tools_frontend_fresh/static/css/2.f524894f.chunk.css.map",
     "static/css/main.635a0b59.chunk.css.map": "/school_tools_frontend_fresh/static/css/main.635a0b59.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.f524894f.chunk.css",
     "static/js/2.0b13bbc1.chunk.js",
     "static/css/main.635a0b59.chunk.css",
-    "static/js/main.c313787a.chunk.js"
+    "static/js/main.d95c45b8.chunk.js"
   ]
 }
