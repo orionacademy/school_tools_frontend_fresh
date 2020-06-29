@@ -52,13 +52,13 @@ class AdminClient extends React.Component {
 
     // TODO: update the fetch to search for a parent username and password!
     authCheck() {
-        console.log("authcheck started, update finished4!")
+        console.log("authcheck started, update finished5!")
         fetch('https://school-server-demo.herokuapp.com/admin', {
             method: 'POST',
             headers : { 
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                'Origin': 'https://ogjaylowe.github.io/school_tools_frontend_fresh/'
+                'Origin': 'https://ogjaylowe.github.io'
                },
             body: JSON.stringify({ username: this.state.username, password: this.state.password })
         })
