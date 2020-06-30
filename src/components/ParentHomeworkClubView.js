@@ -1,5 +1,8 @@
 import React from 'react'
 
+import configValues from '../config.js';
+
+
 class ParentHomeworkClubView extends React.Component {
     state = { homeworkClubs: [] }
 

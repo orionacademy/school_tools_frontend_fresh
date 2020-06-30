@@ -3,6 +3,8 @@ import React from 'react'
 import LoginMenu from '../components/LoginMenu.js';
 import AdminView from "./components/AdminView.js";
 
+import configValues from '../config.js';
+
 // React libraries
 import {
     BrowserRouter as Router,

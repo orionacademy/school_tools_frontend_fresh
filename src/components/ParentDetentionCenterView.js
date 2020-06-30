@@ -1,5 +1,7 @@
 import React from 'react'
 
+import configValues from '../config.js';
+
 class ParentDetentionCenterView extends React.Component {
     state = { detentions: [] }
 

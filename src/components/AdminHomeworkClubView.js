@@ -1,7 +1,5 @@
 import React from "react"
 
-import configValues from '../config.js';
-
 import TableR from './TableR.js';
 
 import CollectionForm from './CollectionForm.js';
@@ -22,6 +20,8 @@ import {
     Route,
     Link
 } from "react-router-dom";
+
+import configValues from '../config.js';
 
 //// **** INITIALIZATIONS **** ////
 // sets up the uniqid hashing function for use with component id's
@@ -158,7 +158,7 @@ class AdminHomeworkClubView extends React.Component {
         console.log(event.target.id)
 
         // perform fetch with DELETE header
-        ffetch(configValues.serverURL + "/api/adminHomeworkClub", {
+        fetch(configValues.serverURL + "/api/adminHomeworkClub", {
             method: 'DELETE',
             headers: new Headers({ 'Content-Type': 'application/json' }),
             body: JSON.stringify(data)

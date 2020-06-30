@@ -5,6 +5,9 @@ import ParentView from "./ParentView.js";
 
 import CollectionForm from './CollectionForm.js'
 
+import configValues from '../config.js';
+
+
 // React libraries
 import {
     BrowserRouter as Router,
