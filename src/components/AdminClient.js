@@ -5,6 +5,9 @@ import AdminView from "./AdminView.js";
 
 import CollectionForm from './CollectionForm.js'
 
+import configValues from "../config.js"
+
+
 // React libraries
 import {
     BrowserRouter as Router,
@@ -52,8 +55,8 @@ class AdminClient extends React.Component {
 
     // TODO: update the fetch to search for a parent username and password!
     authCheck() {
-        console.log("authcheck started, update finished6!")
-        fetch('https://lit-beach-18617.herokuapp.com/admin', {
+        console.log("authcheck started, update finished7!", configValues.serverURL)
+        fetch(configValues.serverURL + "/admin", {
             method: 'POST',
             headers : { 
                 'Content-Type': 'application/json',
