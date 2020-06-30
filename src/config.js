@@ -10,7 +10,7 @@ const configValues = {
     times: ["15", "30", "45", "60"],
     classes: ["Computer Science Principles", "Intro to Technology"],
     periods: ["A", "HR", "1", "2", "3", "4", "5", "6", "7", "8"],
-    serverURL: "https://school-tools-demo-server.herokuapp.com/admin"
+    serverURL: "https://school-tools-demo-server.herokuapp.com"
 }
 
 export default configValues;

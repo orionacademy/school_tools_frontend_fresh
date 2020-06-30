@@ -8,7 +8,7 @@ class ParentHomebriding extends React.Component {
 
     // TODO: make the properties in DB and props name match
     componentDidMount() {
-        fetch('/api/singleStudent', {
+        fetch(configValues.serverURL + "/api/singleStudent", {
             method: 'POST',
             headers: new Headers({ 'Content-Type': 'application/json' }),
             body: JSON.stringify({ studentId: this.props.studentId })
@@ -22,7 +22,7 @@ class ParentHomebriding extends React.Component {
     }
 
     updateHours() {
-        fetch('api/singleStudent', {
+        fetch(configValues.serverURL + "/api/singleStudent", {
             method: 'PUT',
             headers: new Headers({ 'Content-Type': 'application/json' }),
             body: JSON.stringify({ studentId: this.props.studentId, hoursUpdate: this.state.hours })

@@ -45,7 +45,7 @@ class AdminView extends React.Component {
 
     // GET all currentHomeworkClubEntries data to populate table with and store them in state as "homeworkEntries"
     componentDidMount() {
-        fetch("/api/fetchStudentNames", {
+        fetch(configValues.serverURL + "/api/fetchStudentNames", {
             method: 'GET'
         })
             .then(res => res.json())

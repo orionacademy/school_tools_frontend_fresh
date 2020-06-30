@@ -53,7 +53,7 @@ class ParentClient extends React.Component {
 
     // TODO: update the fetch to search for a parent username and password!
     authCheck() {
-        fetch('/parents', {
+        fetch(configValues.serverURL + "/parents", {
             method: 'POST',
             headers: new Headers({ 'Content-Type': 'application/json' }),
             body: JSON.stringify({ username: this.state.username, password: this.state.password })

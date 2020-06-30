@@ -4,7 +4,7 @@ class ParentHomeworkClubView extends React.Component {
     state = { homeworkClubs: [] }
 
     componentDidMount() {
-        fetch("/api/homeworkClub", {
+        fetch(configValues.serverURL + "/api/homeworkClub", {
             method: 'POST',
             headers: new Headers({ 'Content-Type': 'application/json' }),
             body: JSON.stringify({ studentId: "5eb0a14c8ec536f27b41a3b0" })

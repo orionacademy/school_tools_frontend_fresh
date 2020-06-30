@@ -61,7 +61,7 @@ class AdminHomeworkClubView extends React.Component {
 
     // GET all currentHomeworkClubEntries data to populate table with and store them in state as "homeworkEntries"
     componentDidMount() {
-        fetch("/api/adminHomeworkClub", {
+        fetch(configValues.serverURL + "/api/adminHomeworkClub", {
             method: 'GET'
         })
             .then(res => res.json())
@@ -115,7 +115,7 @@ class AdminHomeworkClubView extends React.Component {
         }
 
         // perform POST API operation to create a new currentHomeworkClub document in DB
-        fetch("/api/adminHomeworkClub", {
+        fetch(configValues.serverURL + "/api/adminHomeworkClub", {
             method: 'POST',
             headers: new Headers({ 'Content-Type': 'application/json' }),
             body: JSON.stringify(data)
@@ -157,8 +157,8 @@ class AdminHomeworkClubView extends React.Component {
 
         console.log(event.target.id)
 
-        // perform fetch
-        fetch("/api/adminHomeworkClub", {
+        // perform fetch with DELETE header
+        ffetch(configValues.serverURL + "/api/adminHomeworkClub", {
             method: 'DELETE',
             headers: new Headers({ 'Content-Type': 'application/json' }),
             body: JSON.stringify(data)
