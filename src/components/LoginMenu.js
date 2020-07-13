@@ -11,9 +11,9 @@ class LoginMenu extends React.Component {
                 <div>
                     <br />
                     <br />
-                    <p className="uk-text-lead">Welcome to the homebriding database!</p>
-                    <p className="uk-text-meta">(username + password can be anything to see parent view)</p>
-                    <p className="uk-text-meta">(username: admin, password: 123 to see admin view)</p>
+                    <p className="uk-text-lead">Orion Academy Webtools and Database</p>
+                    <p className="uk-text-meta">(Parent View - Username = pparent, Password = 123)</p>
+                    <p className="uk-text-meta">(Admin View - Username = admin, Password = 123)</p>
 
                     
                     <br />

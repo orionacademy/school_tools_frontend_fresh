@@ -7,6 +7,7 @@ import CollectionForm from './CollectionForm.js'
 
 import configValues from "../config.js"
 
+
 // React libraries
 import {
     BrowserRouter as Router,
@@ -18,6 +19,8 @@ import {
 //// **** INITIALIZATIONS **** ////
 // sets up the uniqid hashing function for use with component id's
 var uniqid = require('uniqid');
+var Loader = require('react-loader');
+
 
 
 // TODO: add a link to the 'home' route from here so that
@@ -28,7 +31,7 @@ var uniqid = require('uniqid');
 // parent view with the StudentID as a prop
 
 class AdminClient extends React.Component {
-    state = { username: "", password: "", loginState: "", admin: false }
+    state = { username: "", password: "", loginState: "", admin: false, loaded: true }
 
     componentDidMount() {
         this.setState({
@@ -55,13 +58,15 @@ class AdminClient extends React.Component {
     // TODO: update the fetch to search for a parent username and password!
     authCheck() {
         console.log("authcheck started, update finished9!", configValues.serverURL)
+        this.setState({loaded: false})
+
         fetch(configValues.serverURL + "/admin", {
             method: 'POST',
-            headers : { 
+            headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
                 'Origin': 'https://ogjaylowe.github.io'
-               },
+            },
             body: JSON.stringify({ username: this.state.username, password: this.state.password })
         })
             .then(res => res.json())
@@ -72,7 +77,7 @@ class AdminClient extends React.Component {
                 }
             })
             .then(() => this.conditionalCheck())
-            .then(console.log("fetch has been called!"))
+            .then(this.setState({loaded: true}))
     }
 
     // performs auth check
@@ -90,7 +95,9 @@ class AdminClient extends React.Component {
                 <Router>
                     <Switch>
                         <Route path="/" >
-                            {this.state.loginState}
+                            <Loader loaded={this.state.loaded}>
+                                {this.state.loginState}
+                            </Loader>
                         </Route>
                     </Switch>
                 </Router>

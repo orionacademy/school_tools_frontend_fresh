@@ -29,16 +29,34 @@ function App() {
 
 
                     <ul>
-                        <li>
+                        <ul>
                             <Link to="/parentClient">
-                                ParentClient
+                                <div class="uk-card uk-card-primary uk-card-small uk-card-body"
+                                    style={{
+                                        marginTop: 50,
+                                        marginRight: 120,
+                                        marginLeft: 100
+                                    }}
+                                >
+                                    <h3 class="uk-card-title" style={{textAlign: "center"}}>Teachers</h3>
+                                    <span uk-icon="icon: user; ratio: 5" style={{textAlign: "center"}}></span>
+                                </div>
                             </Link>
-                        </li>
-                        <li>
+                        </ul>
+                        <ul>
                             <Link to="/adminClient">
-                                AdminClient
+                                <div class="uk-card uk-card-secondary uk-card-small uk-card-body"
+                                    style={{
+                                        marginTop: 50,
+                                        marginRight: 120,
+                                        marginLeft: 100
+                                    }}
+                                >
+                                    <h3 class="uk-card-title">Parents</h3>
+                                    <span uk-icon="icon: users; ratio: 5"></span>
+                                </div>
                             </Link>
-                        </li>
+                        </ul>
                     </ul>
 
                 </Switch>
