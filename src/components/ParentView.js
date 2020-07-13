@@ -24,10 +24,16 @@ import {
 // TODO: convert to class and use fetch with setState to --> then passdown state values as props
 function ParentView(props) {
     return (
-
-
         <div>
-            <Router>
+            <ParentHomebriding studentId={props.studentId} />
+        </div >
+    )
+}
+
+export default ParentView;
+
+/*
+<Router>
                 <Nav />
 
                 <Switch>
@@ -64,9 +70,4 @@ function ParentView(props) {
                 </Switch>
 
             </Router>
-
-        </div >
-    )
-}
-
-export default ParentView;
+*/
