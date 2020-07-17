@@ -1,8 +1,17 @@
 import React from "react";
-import { render } from "@testing-library/react";
+
+import { AwesomeButtonProgress } from 'react-awesome-button';
+import AwesomeButtonStyles from "react-awesome-button/src/styles/styles.scss";
+
+
 
 class LoginMenu extends React.Component {
     state = {}
+
+    async awaitForNext(passedPropsCallback, next) {
+        passedPropsCallback()
+        await next()
+    }
 
     render() {
         return (
@@ -15,7 +24,7 @@ class LoginMenu extends React.Component {
                     <p className="uk-text-meta">(Parent View - Username = pparent, Password = 123)</p>
                     <p className="uk-text-meta">(Admin View - Username = admin, Password = 123)</p>
 
-                    
+
                     <br />
                     <br />
                     <div>
@@ -36,7 +45,20 @@ class LoginMenu extends React.Component {
                             onChange={this.props.callbackOnChangePassword}
                         />
 
-                        <button onClick={this.props.callbackButton} type="button" className="uk-align-right uk-margin-right uk-button uk-button-primary">Log In</button>
+                        <button id="regular button" onClick={this.props.callbackButton} type="button" className="uk-align-right uk-margin-right uk-button uk-button-primary">Log In</button>
+                        <AwesomeButtonProgress
+                            id="awesome button"
+                            size={'large'}
+                            type="primary"
+                            onPress={(element, next) => {
+                                console.log("clicked")
+                                this.awaitForNext(this.props.callbackButton, next)
+                            }}
+                        >
+                            Log In2
+                        </AwesomeButtonProgress>
+                        
+
                     </div>
                     <br />
                     <br />

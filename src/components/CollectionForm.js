@@ -5,7 +5,7 @@ function CollectionForm(props) {
     return (
         <div className="uk-flex uk-flex-center" uk-grid="true">
             <div>
-                <form>
+                
                     <fieldset className="uk-fieldset">
 
                         <legend className="uk-legend uk-margin-top">{props.collectionLegend}</legend>
@@ -13,7 +13,7 @@ function CollectionForm(props) {
                         {props.children}
 
                     </fieldset>
-                </form>
+                
             </div>
         </div>
     )

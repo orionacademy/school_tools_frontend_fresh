@@ -56,11 +56,10 @@ class AdminClient extends React.Component {
     }
 
     // TODO: update the fetch to search for a parent username and password!
-    authCheck() {
+    async authCheck() {
         console.log("authcheck started, update finished9!", configValues.serverURL)
-        this.setState({loaded: false})
 
-        fetch(configValues.serverURL + "/admin", {
+        await fetch(configValues.serverURL + "/admin", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -77,7 +76,6 @@ class AdminClient extends React.Component {
                 }
             })
             .then(() => this.conditionalCheck())
-            .then(this.setState({loaded: true}))
     }
 
     // performs auth check
