@@ -40,6 +40,11 @@ var periods = configValues.periods
 // headers for each type of table
 var hwcHeaders = configValues.homeworkClubHeaders
 var detentionHeaders = []
+var misbehaviorCategories = [
+    "Inappropriate language", "Teasing", "Open computer", "Inappropriate use of computer", "Headphones on without specific permission", "Speaking out during class"
+    , "Tardiness", "Name-calling", "Disruptive behavior", "Not following directions", "Failure to do a chore", "Cell Phones out or in use", "Refusal to participate", 
+    "Food in a classroom", "Backpack or other materials not part of class, carried into class"
+]
 
 
 function getFormattedDate(date) {
@@ -182,7 +187,7 @@ class AdminHomeworkClubView extends React.Component {
     render() {
         return (
             <div>
-                <CollectionForm collectionLegend={"Homework Club"}>
+                <CollectionForm collectionLegend={"Detentions"}>
                     <Selector
                         configObjectValue="studentName"
                         arrayToMap={this.props.students}
@@ -191,18 +196,17 @@ class AdminHomeworkClubView extends React.Component {
                     <Selector
                         configObjectValue="classSection"
                         arrayToMap={classes}
-                        labelText="Class of assignment: "
+                        labelText="Class of detention: "
                     />
                     <Selector
                         configObjectValue="classPeriod"
                         arrayToMap={periods}
-                        labelText="Class Period: "
+                        labelText="Class period detention was issued: "
                     />
-                    <DescriptionText
-                        callbackFunction={() => this.setState({ descriptionText: document.querySelector('#descriptionText').value })}
-                        passedStateValue={this.state.descriptionText}
-                        descriptionPlaceholder={"Description of assignment"}
-                        passedId="descriptionText"
+                    <Selector
+                        configObjectValue="misbehaviorCategory"
+                        arrayToMap={misbehaviorCategories}
+                        labelText="Category of misbehavior"
                     />
                     <DatePicker
                         callbackFunction={() => this.setState({ dueDate: document.querySelector('#date').value })}

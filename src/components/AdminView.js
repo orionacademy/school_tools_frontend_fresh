@@ -18,6 +18,7 @@ import ParentView from "./ParentView.js";
 import Nav from "./Nav.js";
 
 import AdminHomeworkClubView from "./AdminHomeworkClubView.js";
+import AdminDetentionsView from "./AdminDetentionsView.js";
 
 import {
     BrowserRouter as Router,
@@ -79,7 +80,7 @@ class AdminView extends React.Component {
 
                     <Switch>
                         <Route path="/detentioncenter">
-                            Large design changes in progress, please use homework club and homebriding for now.
+                            <AdminDetentionsView students={this.state.students}/>
                         </Route>
                     </Switch>
 
@@ -112,6 +113,12 @@ class AdminView extends React.Component {
                     <Switch>
                         <Route path="/procedures" >
                             <h1>Coming soon!</h1>
+                        </Route>
+                    </Switch>
+
+                    <Switch>
+                        <Route path="/home" >
+                            <h1>More data required to visualize effectively</h1>
                         </Route>
                     </Switch>
 

@@ -4,7 +4,7 @@ import Selector from "./Selector.js";
 import configValues from "../config.js"
 
 class ParentHomebriding extends React.Component {
-    state = { student: {}, hours: 15 }
+    state = { student: {}, hours: 0, displayedHours: 0 }
 
     // TODO: make the properties in DB and props name match
     componentDidMount() {
@@ -14,8 +14,10 @@ class ParentHomebriding extends React.Component {
             body: JSON.stringify({ studentId: this.props.studentId })
         })
             .then(res => res.json())
-            .then(student => this.setState({ student }))
+            .then(student => this.setState({ student: student, displayedHours: student.totalHours }))
     }
+
+
 
     setMinutes() {
         this.setState({ hours: (document.querySelector("#homebridingTime").value / 60) })
@@ -28,8 +30,9 @@ class ParentHomebriding extends React.Component {
             body: JSON.stringify({ studentId: this.props.studentId, hoursUpdate: this.state.hours })
         })
             .then(res => res.json())
-            .then(student => this.setState({student}))
-    } 
+            .then(student => this.setState({ student: student, displayedHours: this.state.displayedHours + this.state.hours }))
+            .then(alert( "Your students hours have been updated! Please refresh to see changes" ))
+    }
 
     render() {
         return (
@@ -42,7 +45,7 @@ class ParentHomebriding extends React.Component {
                     </div>
                     <br />
                     <div>
-                        <p className="uk-text-small">{this.state.student.fname + " " + this.state.student.lname} has earned {this.state.student.totalHours}/320 hours so far!</p>
+                        <p className="uk-text-small">{this.state.student.fname + " " + this.state.student.lname} has earned {this.state.displayedHours}/320 hours so far!</p>
                         <p className="uk-text-small">There are X days remaining until the next quarter of homebriding hours</p>
                     </div>
                 </div>
@@ -70,7 +73,7 @@ class ParentHomebriding extends React.Component {
                         configObjectValue="homebridingTime"
                         arrayToMap={configValues.times}
                         labelText="Select amount of time (minutes): "
-                        callbackFunction = {() => this.setMinutes()}
+                        callbackFunction={() => this.setMinutes()}
                     />
                 </div>
             </div>

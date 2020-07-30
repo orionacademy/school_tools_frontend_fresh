@@ -25,7 +25,9 @@ import {
 function ParentView(props) {
     return (
         <div>
-            <ParentHomebriding studentId={props.studentId} />
+            <CollectionForm>
+                <ParentHomebriding studentId={props.studentId} />
+            </CollectionForm>
         </div >
     )
 }

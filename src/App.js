@@ -5,6 +5,9 @@ import AdminClient from './components/AdminClient.js'
 
 import AdminView from "./components/AdminView.js";
 
+import ParentView from "./components/ParentView.js";
+
+
 // React libraries
 import {
     BrowserRouter as Router,
