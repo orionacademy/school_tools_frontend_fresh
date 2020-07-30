@@ -41,7 +41,7 @@ function App() {
                                         marginLeft: 100
                                     }}
                                 >
-                                    <h3 class="uk-card-title" style={{textAlign: "center"}}>Teachers</h3>
+                                    <h3 class="uk-card-title" style={{textAlign: "center"}}>Parents</h3>
                                     <span uk-icon="icon: user; ratio: 5" style={{textAlign: "center"}}></span>
                                 </div>
                             </Link>
@@ -55,7 +55,7 @@ function App() {
                                         marginLeft: 100
                                     }}
                                 >
-                                    <h3 class="uk-card-title">Parents</h3>
+                                    <h3 class="uk-card-title">Teachers</h3>
                                     <span uk-icon="icon: users; ratio: 5"></span>
                                 </div>
                             </Link>
