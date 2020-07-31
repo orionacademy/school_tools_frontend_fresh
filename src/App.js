@@ -7,6 +7,8 @@ import AdminView from "./components/AdminView.js";
 
 import ParentView from "./components/ParentView.js";
 
+import { AwesomeButton } from 'react-awesome-button';
+
 
 // React libraries
 import {
@@ -34,30 +36,22 @@ function App() {
                     <ul>
                         <ul>
                             <Link to="/parentClient">
-                                <div class="uk-card uk-card-primary uk-card-small uk-card-body"
-                                    style={{
-                                        marginTop: 50,
-                                        marginRight: 120,
-                                        marginLeft: 100
-                                    }}
+                                <AwesomeButton 
+                                    size={'large'}
+                                    type="primary"
+                                    style={{marginLeft: "auto", marginRight: "auto", marginTop: "100px"}}
                                 >
-                                    <h3 class="uk-card-title" style={{textAlign: "center"}}>Parents</h3>
-                                    <span uk-icon="icon: user; ratio: 5" style={{textAlign: "center"}}></span>
-                                </div>
+                                    Parent Side Client</AwesomeButton>
                             </Link>
                         </ul>
                         <ul>
                             <Link to="/adminClient">
-                                <div class="uk-card uk-card-secondary uk-card-small uk-card-body"
-                                    style={{
-                                        marginTop: 50,
-                                        marginRight: 120,
-                                        marginLeft: 100
-                                    }}
+                            <AwesomeButton 
+                                    size={'large'}
+                                    type="secondary"
+                                    style={{marginLeft: "auto", marginRight: "auto", marginTop: "100px"}}
                                 >
-                                    <h3 class="uk-card-title">Teachers</h3>
-                                    <span uk-icon="icon: users; ratio: 5"></span>
-                                </div>
+                                    Admin/Teacher Side Client</AwesomeButton>
                             </Link>
                         </ul>
                     </ul>

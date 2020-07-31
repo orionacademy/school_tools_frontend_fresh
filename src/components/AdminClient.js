@@ -31,7 +31,7 @@ var Loader = require('react-loader');
 // parent view with the StudentID as a prop
 
 class AdminClient extends React.Component {
-    state = { username: "", password: "", loginState: "", admin: false, loaded: true }
+    state = { username: "", password: "", loginState: "", admin: false, loading: false, loaded: true }
 
     componentDidMount() {
         this.setState({
@@ -41,6 +41,7 @@ class AdminClient extends React.Component {
                         callbackButton={() => this.authCheck()}
                         callbackOnChangeUsername={(event) => this.updateUsernameState(event)}
                         callbackOnChangePassword={(event) => this.updatePasswordState(event)}
+                        loadedState={this.state.loaded}
                     />
                 </CollectionForm>
         })
@@ -57,7 +58,9 @@ class AdminClient extends React.Component {
 
     // TODO: update the fetch to search for a parent username and password!
     async authCheck() {
-        console.log("authcheck started, update finished9!", configValues.serverURL)
+        this.setState({ loading: true, loaded: false })
+        await console.log("authcheck started, update finished9!", configValues.serverURL, this.state.loading)
+
 
         await fetch(configValues.serverURL + "/admin", {
             method: 'POST',
@@ -76,6 +79,8 @@ class AdminClient extends React.Component {
                 }
             })
             .then(() => this.conditionalCheck())
+            
+        await this.setState({loading: false, loaded: true})
     }
 
     // performs auth check

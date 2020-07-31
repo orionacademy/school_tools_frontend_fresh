@@ -8,6 +8,7 @@ import CollectionForm from './CollectionForm.js'
 import configValues from '../config.js';
 
 
+
 // React libraries
 import {
     BrowserRouter as Router,
@@ -19,6 +20,7 @@ import {
 //// **** INITIALIZATIONS **** ////
 // sets up the uniqid hashing function for use with component id's
 var uniqid = require('uniqid');
+var Loader = require('react-loader');
 
 
 // TODO: add a link to the 'home' route from here so that
@@ -29,7 +31,9 @@ var uniqid = require('uniqid');
 // parent view with the StudentID as a prop
 
 class ParentClient extends React.Component {
-    state = { username: "", password: "", loginState: "", parent: false }
+    state = { username: "", password: "", loginState: "", parent: false, loaded: true }
+
+    
 
     componentDidMount() {
         console.log("mount ", this.state.parent)
@@ -55,8 +59,10 @@ class ParentClient extends React.Component {
     }
 
     // TODO: update the fetch to search for a parent username and password!
-    authCheck() {
-        fetch(configValues.serverURL + "/parents", {
+    async authCheck() {
+        this.setState({ loaded: false })
+
+        await fetch(configValues.serverURL + "/parents", {
             method: 'POST',
             headers: new Headers({ 'Content-Type': 'application/json' }),
             body: JSON.stringify({ username: this.state.username, password: this.state.password })
@@ -69,6 +75,8 @@ class ParentClient extends React.Component {
                 }
             })
             .then(() => this.conditionalCheck())
+
+        await this.setState({loaded: true})
     }
 
     // performs auth check
@@ -88,7 +96,9 @@ class ParentClient extends React.Component {
                 <Router>
                     <Switch>
                         <Route path="/" >
-                            {this.state.loginState}
+                            <Loader loaded={this.state.loaded}>
+                                {this.state.loginState}
+                            </Loader>
                         </Route>
                     </Switch>
                 </Router>
