@@ -103,7 +103,9 @@ class AdminHomeworkClubView extends React.Component {
     // POST a new table entry into the currentHomeworkClubEntries collection in the DB
     onClickAddHomeworkCard() {
         // splice first and last name into two seperate values
-        var splicedName = document.querySelector('#studentName').value.split(', ')
+        var splicedName = document.querySelector('#studentName').value.split('. ')
+        splicedName[0] = splicedName[0] + "."
+        console.log(splicedName)
 
         // data sent in the body to the express server for saving in MongoDB
         var data = {
@@ -116,6 +118,8 @@ class AdminHomeworkClubView extends React.Component {
             studentFname: splicedName[1],
             studentLname: splicedName[0]
         }
+
+        console.log(data)
 
         // perform POST API operation to create a new currentHomeworkClub document in DB
         fetch(configValues.serverURL + "/api/adminHomeworkClub", {
@@ -131,7 +135,7 @@ class AdminHomeworkClubView extends React.Component {
 
     // a helper function which adds additional TableR entries using the _id of the latest created document object
     additionalTablePopulation(responseId) {
-        var splicedName = document.querySelector('#studentName').value.split(', ')
+        var splicedName = document.querySelector('#studentName').value.split('. ')
 
         // the TableR component needs a TableComponent appended to it as well since we now have an 
         // additonal homeworkEntry!

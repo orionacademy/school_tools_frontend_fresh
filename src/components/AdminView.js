@@ -65,7 +65,7 @@ class AdminView extends React.Component {
         for (let [key, value] of Object.entries(listOfEntries)) {
             this.setState(prevState => ({
                 // append those values to the list of students in state
-                students: [...prevState.students, value.lname + ", " + value.fname]
+                students: [...prevState.students, value.lname + " " + value.fname]
             }))
         }
     }

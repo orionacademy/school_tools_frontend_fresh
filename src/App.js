@@ -21,8 +21,16 @@ import {
 function App() {
     return (
         <div>
+            <AdminClient />
+        </div>
+    )
+}
 
-            <Router>
+export default App
+
+
+/*
+<Router>
                 <Switch>
                     <Route path="/parentClient" >
                         <ParentClient />
@@ -58,9 +66,4 @@ function App() {
 
                 </Switch>
             </Router>
-
-        </div>
-    )
-}
-
-export default App
+            */

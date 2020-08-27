@@ -39,10 +39,10 @@ var periods = configValues.periods
 
 // headers for each type of table
 var hwcHeaders = configValues.homeworkClubHeaders
-var detentionHeaders = []
+var detentionHeaders = configValues.detentionHeaders
 var misbehaviorCategories = [
     "Inappropriate language", "Teasing", "Open computer", "Inappropriate use of computer", "Headphones on without specific permission", "Speaking out during class"
-    , "Tardiness", "Name-calling", "Disruptive behavior", "Not following directions", "Failure to do a chore", "Cell Phones out or in use", "Refusal to participate", 
+    , "Tardiness", "Name-calling", "Disruptive behavior", "Not following directions", "Failure to do a chore", "Cell Phones out or in use", "Refusal to participate",
     "Food in a classroom", "Backpack or other materials not part of class, carried into class"
 ]
 
@@ -59,7 +59,7 @@ function getFormattedDate(date) {
     return month + '/' + day + '/' + year;
 }
 
-class AdminHomeworkClubView extends React.Component {
+class AdminDetentionsView extends React.Component {
     state = {
         homeworkEntries: [],
         detentionEntries: [],
@@ -69,15 +69,17 @@ class AdminHomeworkClubView extends React.Component {
 
     // GET all currentHomeworkClubEntries data to populate table with and store them in state as "homeworkEntries"
     componentDidMount() {
-        fetch(configValues.serverURL + "/api/adminHomeworkClub", {
+        fetch(configValues.serverURL + "/api/adminDetentionCenter", {
             method: 'GET'
         })
             .then(res => res.json())
-            .then(homeworkEntries => this.initialTablePopulation(homeworkEntries))
+            .then(detentionEntries => this.initialTablePopulation(detentionEntries))
 
         this.setState({
             dueDate: getFormattedDate(new Date())
         })
+
+
     }
 
     // a helper function that converts information from the 'currentHomeworkClubEntries' MongoDB collection 
@@ -90,7 +92,7 @@ class AdminHomeworkClubView extends React.Component {
             // TODO: use the entries ObjectId value as the reference index so we can delete it from DB later down the road
 
             this.setState(prevState => ({
-                homeworkEntries: [...prevState.homeworkEntries,
+                detentionEntries: [...prevState.detentionEntries,
                 <TableComponent
                     id={uniqid()}
                     referenceIndex={value._id}
@@ -108,7 +110,9 @@ class AdminHomeworkClubView extends React.Component {
     // POST a new table entry into the currentHomeworkClubEntries collection in the DB
     onClickAddHomeworkCard() {
         // splice first and last name into two seperate values
-        var splicedName = document.querySelector('#studentName').value.split(', ')
+        var splicedName = document.querySelector('#studentName').value.split('. ')
+        splicedName[0] = splicedName[0] + "."
+        console.log(splicedName)
 
         // data sent in the body to the express server for saving in MongoDB
         var data = {
@@ -123,7 +127,7 @@ class AdminHomeworkClubView extends React.Component {
         }
 
         // perform POST API operation to create a new currentHomeworkClub document in DB
-        fetch(configValues.serverURL + "/api/adminHomeworkClub", {
+        fetch(configValues.serverURL + "/api/adminDetentionCenter", {
             method: 'POST',
             headers: new Headers({ 'Content-Type': 'application/json' }),
             body: JSON.stringify(data)
@@ -136,12 +140,12 @@ class AdminHomeworkClubView extends React.Component {
 
     // a helper function which adds additional TableR entries using the _id of the latest created document object
     additionalTablePopulation(responseId) {
-        var splicedName = document.querySelector('#studentName').value.split(', ')
+        var splicedName = document.querySelector('#studentName').value.split('. ')
 
         // the TableR component needs a TableComponent appended to it as well since we now have an 
         // additonal homeworkEntry!
         this.setState(prevState => ({
-            homeworkEntries: [...prevState.homeworkEntries,
+            detentionEntries: [...prevState.detentionEntries,
             <TableComponent
                 // THIS ID COULD BE A MAJOR PROBLEM FOR DELETING TABLE ENTRIES! 
                 id={uniqid()}
@@ -166,7 +170,7 @@ class AdminHomeworkClubView extends React.Component {
         console.log(event.target.id)
 
         // perform fetch with DELETE header
-        fetch(configValues.serverURL + "/api/adminHomeworkClub", {
+        fetch(configValues.serverURL + "/api/adminDetentionCenter", {
             method: 'DELETE',
             headers: new Headers({ 'Content-Type': 'application/json' }),
             body: JSON.stringify(data)
@@ -176,7 +180,7 @@ class AdminHomeworkClubView extends React.Component {
         // remove the TableComponent from the current list via filter
         this.setState(
             {
-                homeworkEntries: this.state.homeworkEntries.filter(function (entry) {
+                detentionEntries: this.state.detentionEntries.filter(function (entry) {
                     // return all entries which do not share the id of the target entry
                     return entry.props.referenceIndex !== event.target.id
                 })
@@ -206,7 +210,13 @@ class AdminHomeworkClubView extends React.Component {
                     <Selector
                         configObjectValue="misbehaviorCategory"
                         arrayToMap={misbehaviorCategories}
-                        labelText="Category of misbehavior"
+                        labelText="Category of misbehavior:"
+                    />
+                    <DescriptionText
+                        callbackFunction={() => this.setState({ descriptionText: document.querySelector('#descriptionText').value })}
+                        passedStateValue={this.state.descriptionText}
+                        descriptionPlaceholder={"Description of incident"}
+                        passedId="descriptionText"
                     />
                     <DatePicker
                         callbackFunction={() => this.setState({ dueDate: document.querySelector('#date').value })}
@@ -215,10 +225,10 @@ class AdminHomeworkClubView extends React.Component {
                     <CallbackButton callbackFunction={() => this.onClickAddHomeworkCard()} buttonDisplayValue="Add Student" />
                 </CollectionForm>
 
-                <TableR entries={this.state.homeworkEntries} tableHeaders={hwcHeaders} tableLegend="Homework Club Entries" />
+                <TableR entries={this.state.detentionEntries} tableHeaders={detentionHeaders} tableLegend="Detention Entries" />
             </div >
         )
     }
 }
 
-export default AdminHomeworkClubView
+export default AdminDetentionsView

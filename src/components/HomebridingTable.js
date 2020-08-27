@@ -22,7 +22,7 @@ function HomebridingTable(props) {
                     {props.students.map(
                         (student) => (
                             <tr>
-                                <td>{student.lname + ", " + student.fname}</td>
+                                <td>{student.lname + " " + student.fname}</td>
                                 <td>hours this term</td>
                                 <td>{student.totalHours}</td>
                                 <td>{320 - student.totalHours}</td>
