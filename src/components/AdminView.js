@@ -93,7 +93,7 @@ class AdminView extends React.Component {
                     <Switch>
                         <Route path="/homebriding">
                             <CollectionForm collectionLegend={""}>
-                                <HomebridingTable students={this.state.allStudentInfo} tableLegend={"Homebriding 2020"} />
+                                <HomebridingTable students={this.state.allStudentInfo} tableLegend={"Homebridging 2020"} />
                             </CollectionForm>
                         </Route>
                     </Switch>
