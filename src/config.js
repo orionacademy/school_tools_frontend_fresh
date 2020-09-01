@@ -9,7 +9,7 @@ const configValues = {
     homeworkClubHeaders: ["Student", "Class", "Assignment Description", "Due Date", "Completed", "Incompleted"],
     detentionHeaders: ["Student", "Class", "Detention Description", "Due Date", "Served", "Incompleted"],
     times: ["15", "30", "45", "60"],
-    classes: ["Computer Science Principles", "Intro to Technology"],
+    classes: ["AdvComp", "Alg1", "Alg1A", "Alg1B", "AlgII", "APCALCBC", "Bio", "Bot", "ChemEarth", "CSP", "DogI", "DogII", "Econ", "GEO", "HR", "HRExt", "PRECALCA", "ITech", "Lat I", "Lat II", "Lat III", "LitI", "LitII", "LitIII", "LitIV", "Personal Projects", "Physics", "PreAlg", "Psych", "Seminar", "Group9", "Group10", "Group11", "Group12", "Stats", "AH", "Gov", "WorldHist"],
     periods: ["A", "HR", "1", "2", "3", "4", "lunch", "5", "6", "7", "8"],
     serverURL: "https://school-tools-demo-server.herokuapp.com"
 }
