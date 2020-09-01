@@ -42,7 +42,7 @@ function Nav() {
                                 <ul className="uk-navbar-nav">
                                     <li className="">
                                         <Link to="/homebriding">
-                                            Homebriding
+                                            Homebridging
                                         </Link>
                                     </li>
 
